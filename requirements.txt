@@ -9,3 +9,9 @@ seaborn
 pydantic
 dotenv
 pyyaml
+kafka-python
+python-snappy
+pyspark
+pyarrow
+fastavro
+tqdm
