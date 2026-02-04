@@ -1,0 +1,627 @@
+2026-02-04 10:06:19,155 | utils.config_loader | INFO | Config loaded successfully
+2026-02-04 10:06:19,155 | src.DataPipeline.data_reader | INFO | DataReader initialized with backend: polars
+2026-02-04 10:06:19,155 | src.DataPipeline.data_cleaner | INFO | DataCleaner initialized (Inf: max, NaN: drop)
+2026-02-04 10:06:19,156 | src.DataPipeline.data_validator | INFO | DataValidator initialized
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | ETL Pipeline initialized
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | Raw directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/raw
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | Processed directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed
+2026-02-04 10:06:19,156 | __main__ | INFO | Processing single file: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | Processing: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:06:19,156 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:06:19,156 | src.DataPipeline.data_reader | INFO | Reading file: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:06:19,620 | src.DataPipeline.data_reader | INFO | Read 529,918 rows with 79 columns using polars
+2026-02-04 10:06:19,620 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:06:19,620 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 529,918 rows
+2026-02-04 10:06:19,625 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:06:19,659 | src.DataPipeline.data_cleaner | INFO | No Infinity values found
+2026-02-04 10:06:19,659 | src.DataPipeline.etl_pipeline | ERROR | ✗ Failed to process Monday_WorkingHours_ISCX.csv: DataFrame.sum() got an unexpected keyword argument 'axis'
+Traceback (most recent call last):
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/etl_pipeline.py", line 137, in process_file
+    df = self.cleaner.clean_dataframe(df)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/data_cleaner.py", line 333, in clean_dataframe
+    df = self.handle_missing_polars(df)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/data_cleaner.py", line 274, in handle_missing_polars
+    missing_count = df.null_count().sum(axis=1)[0]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataFrame.sum() got an unexpected keyword argument 'axis'
+2026-02-04 10:06:19,668 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:06:19,669 | src.DataPipeline.etl_pipeline | INFO | ETL PIPELINE SUMMARY
+2026-02-04 10:06:19,669 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:06:19,669 | src.DataPipeline.etl_pipeline | INFO | 
+Detailed report saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/reports/etl_report_20260204_100619.json
+2026-02-04 10:06:19,669 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+
+2026-02-04 10:14:01,220 | utils.config_loader | INFO | Config loaded successfully
+2026-02-04 10:14:01,222 | src.DataPipeline.data_reader | INFO | DataReader initialized with pandas backend
+2026-02-04 10:14:01,222 | src.DataPipeline.data_cleaner | INFO | DataCleaner initialized (Inf: max, NaN: drop)
+2026-02-04 10:14:01,222 | src.DataPipeline.data_validator | INFO | DataValidator initialized
+2026-02-04 10:14:01,222 | src.DataPipeline.etl_pipeline | INFO | ETL Pipeline initialized
+2026-02-04 10:14:01,222 | src.DataPipeline.etl_pipeline | INFO | Raw directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/raw
+2026-02-04 10:14:01,222 | src.DataPipeline.etl_pipeline | INFO | Processed directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed
+2026-02-04 10:14:01,222 | __main__ | INFO | Processing all files in raw directory
+2026-02-04 10:14:01,222 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:01,222 | src.DataPipeline.etl_pipeline | INFO | STARTING ETL PIPELINE
+2026-02-04 10:14:01,222 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:01,223 | src.DataPipeline.data_reader | INFO | Found 8 CSV files in /home/charitha/CICIDS-2017/IDS-ML-CIC/data/raw
+2026-02-04 10:14:01,223 | src.DataPipeline.etl_pipeline | INFO | Found 8 CSV files to process
+
+2026-02-04 10:14:01,223 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:14:01,893 | src.DataPipeline.data_reader | INFO | Read 225,745 rows with 79 columns
+2026-02-04 10:14:01,896 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:01,896 | src.DataPipeline.etl_pipeline | INFO | Using schema from Friday_WorkingHours_Afternoon_DDos_ISCX.csv (79 columns)
+
+2026-02-04 10:14:01,896 | src.DataPipeline.etl_pipeline | INFO | 
+[1/8] Processing Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:14:01,896 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:01,896 | src.DataPipeline.etl_pipeline | INFO | Processing: Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:14:01,896 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:01,896 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:01,897 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:14:02,474 | src.DataPipeline.data_reader | INFO | Read 225,745 rows with 79 columns
+2026-02-04 10:14:02,474 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:02,474 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 225,745 rows
+2026-02-04 10:14:02,474 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:02,566 | src.DataPipeline.data_cleaner | INFO | Found 64 Infinity values
+2026-02-04 10:14:02,580 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:02,597 | src.DataPipeline.data_cleaner | INFO | Found 4 missing values
+2026-02-04 10:14:02,666 | src.DataPipeline.data_cleaner | INFO | Dropped 4 rows with missing values
+2026-02-04 10:14:02,667 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 225,741 rows (4 dropped)
+2026-02-04 10:14:02,667 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:02,667 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:02,746 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:02,760 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:02,761 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:02,761 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:02,980 | src.DataPipeline.data_validator | WARNING | Found 2633 duplicate rows
+2026-02-04 10:14:02,980 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:02,980 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:06,641 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:14:06,642 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:14:06,642 | src.DataPipeline.etl_pipeline | INFO |   Rows: 225,745 → 225,741
+2026-02-04 10:14:06,651 | src.DataPipeline.etl_pipeline | INFO | 
+[2/8] Processing Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:14:06,651 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:06,651 | src.DataPipeline.etl_pipeline | INFO | Processing: Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:14:06,651 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:06,651 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:06,652 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:14:07,365 | src.DataPipeline.data_reader | INFO | Read 286,467 rows with 79 columns
+2026-02-04 10:14:07,365 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:07,365 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 286,467 rows
+2026-02-04 10:14:07,366 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:07,470 | src.DataPipeline.data_cleaner | INFO | Found 727 Infinity values
+2026-02-04 10:14:07,482 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:07,500 | src.DataPipeline.data_cleaner | INFO | Found 15 missing values
+2026-02-04 10:14:07,583 | src.DataPipeline.data_cleaner | INFO | Dropped 15 rows with missing values
+2026-02-04 10:14:07,584 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 286,452 rows (15 dropped)
+2026-02-04 10:14:07,584 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:07,584 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:07,674 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:07,693 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:07,693 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:07,693 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:07,927 | src.DataPipeline.data_validator | WARNING | Found 72353 duplicate rows
+2026-02-04 10:14:07,928 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:07,928 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:11,774 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:14:11,774 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:14:11,774 | src.DataPipeline.etl_pipeline | INFO |   Rows: 286,467 → 286,452
+2026-02-04 10:14:11,785 | src.DataPipeline.etl_pipeline | INFO | 
+[3/8] Processing Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:14:11,786 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:11,786 | src.DataPipeline.etl_pipeline | INFO | Processing: Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:14:11,786 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:11,786 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:11,786 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:14:12,320 | src.DataPipeline.data_reader | INFO | Read 191,033 rows with 79 columns
+2026-02-04 10:14:12,321 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:12,321 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 191,033 rows
+2026-02-04 10:14:12,321 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:12,396 | src.DataPipeline.data_cleaner | INFO | Found 216 Infinity values
+2026-02-04 10:14:12,406 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:12,417 | src.DataPipeline.data_cleaner | INFO | Found 28 missing values
+2026-02-04 10:14:12,472 | src.DataPipeline.data_cleaner | INFO | Dropped 28 rows with missing values
+2026-02-04 10:14:12,473 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 191,005 rows (28 dropped)
+2026-02-04 10:14:12,473 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:12,473 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:12,536 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:12,549 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:12,549 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:12,549 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:12,724 | src.DataPipeline.data_validator | WARNING | Found 6888 duplicate rows
+2026-02-04 10:14:12,724 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:12,724 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:15,577 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:14:15,577 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:14:15,577 | src.DataPipeline.etl_pipeline | INFO |   Rows: 191,033 → 191,005
+2026-02-04 10:14:15,584 | src.DataPipeline.etl_pipeline | INFO | 
+[4/8] Processing Monday_WorkingHours_ISCX.csv
+2026-02-04 10:14:15,584 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:15,584 | src.DataPipeline.etl_pipeline | INFO | Processing: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:14:15,584 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:15,584 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:15,584 | src.DataPipeline.data_reader | INFO | Reading file: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:14:17,218 | src.DataPipeline.data_reader | INFO | Read 529,918 rows with 79 columns
+2026-02-04 10:14:17,218 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:17,218 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 529,918 rows
+2026-02-04 10:14:17,218 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:17,404 | src.DataPipeline.data_cleaner | INFO | Found 810 Infinity values
+2026-02-04 10:14:17,424 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:17,458 | src.DataPipeline.data_cleaner | INFO | Found 64 missing values
+2026-02-04 10:14:17,572 | src.DataPipeline.data_cleaner | INFO | Dropped 64 rows with missing values
+2026-02-04 10:14:17,572 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 529,854 rows (64 dropped)
+2026-02-04 10:14:17,573 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:17,573 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:17,731 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:17,765 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:17,765 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:17,766 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:18,341 | src.DataPipeline.data_validator | WARNING | Found 26927 duplicate rows
+2026-02-04 10:14:18,341 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:18,341 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:26,868 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Monday_WorkingHours_ISCX.csv
+2026-02-04 10:14:26,869 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Monday_WorkingHours_ISCX.csv
+2026-02-04 10:14:26,869 | src.DataPipeline.etl_pipeline | INFO |   Rows: 529,918 → 529,854
+2026-02-04 10:14:26,885 | src.DataPipeline.etl_pipeline | INFO | 
+[5/8] Processing Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:14:26,885 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:26,885 | src.DataPipeline.etl_pipeline | INFO | Processing: Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:14:26,885 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:26,885 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:26,885 | src.DataPipeline.data_reader | INFO | Reading file: Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:14:27,570 | src.DataPipeline.data_reader | INFO | Read 288,602 rows with 79 columns
+2026-02-04 10:14:27,571 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:27,571 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 288,602 rows
+2026-02-04 10:14:27,571 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:27,627 | src.DataPipeline.data_cleaner | INFO | Found 396 Infinity values
+2026-02-04 10:14:27,638 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:27,656 | src.DataPipeline.data_cleaner | INFO | Found 18 missing values
+2026-02-04 10:14:27,738 | src.DataPipeline.data_cleaner | INFO | Dropped 18 rows with missing values
+2026-02-04 10:14:27,738 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 288,584 rows (18 dropped)
+2026-02-04 10:14:27,738 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:27,738 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:27,793 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:27,811 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:27,812 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:27,812 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:28,061 | src.DataPipeline.data_validator | WARNING | Found 35627 duplicate rows
+2026-02-04 10:14:28,061 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:28,062 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:32,190 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:14:32,190 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:14:32,190 | src.DataPipeline.etl_pipeline | INFO |   Rows: 288,602 → 288,584
+2026-02-04 10:14:32,200 | src.DataPipeline.etl_pipeline | INFO | 
+[6/8] Processing Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:14:32,200 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:32,200 | src.DataPipeline.etl_pipeline | INFO | Processing: Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:14:32,200 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:32,200 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:32,200 | src.DataPipeline.data_reader | INFO | Reading file: Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:14:32,640 | src.DataPipeline.data_reader | INFO | Read 170,366 rows with 79 columns
+2026-02-04 10:14:32,640 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:32,640 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 170,366 rows
+2026-02-04 10:14:32,640 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:32,687 | src.DataPipeline.data_cleaner | INFO | Found 250 Infinity values
+2026-02-04 10:14:32,700 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:32,711 | src.DataPipeline.data_cleaner | INFO | Found 20 missing values
+2026-02-04 10:14:32,764 | src.DataPipeline.data_cleaner | INFO | Dropped 20 rows with missing values
+2026-02-04 10:14:32,764 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 170,346 rows (20 dropped)
+2026-02-04 10:14:32,764 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:32,764 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:32,799 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:32,812 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:32,812 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:32,812 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:32,980 | src.DataPipeline.data_validator | WARNING | Found 6065 duplicate rows
+2026-02-04 10:14:32,980 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:32,980 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:35,520 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:14:35,521 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:14:35,521 | src.DataPipeline.etl_pipeline | INFO |   Rows: 170,366 → 170,346
+2026-02-04 10:14:35,525 | src.DataPipeline.etl_pipeline | INFO | 
+[7/8] Processing Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:14:35,525 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:35,525 | src.DataPipeline.etl_pipeline | INFO | Processing: Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:14:35,526 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:35,526 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:35,526 | src.DataPipeline.data_reader | INFO | Reading file: Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:14:36,841 | src.DataPipeline.data_reader | INFO | Read 445,909 rows with 79 columns
+2026-02-04 10:14:36,841 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:36,841 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 445,909 rows
+2026-02-04 10:14:36,841 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:36,972 | src.DataPipeline.data_cleaner | INFO | Found 327 Infinity values
+2026-02-04 10:14:36,990 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:37,014 | src.DataPipeline.data_cleaner | INFO | Found 201 missing values
+2026-02-04 10:14:37,134 | src.DataPipeline.data_cleaner | INFO | Dropped 201 rows with missing values
+2026-02-04 10:14:37,135 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 445,708 rows (201 dropped)
+2026-02-04 10:14:37,135 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:37,136 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:37,267 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:37,296 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:37,296 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:37,296 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:37,787 | src.DataPipeline.data_validator | WARNING | Found 24025 duplicate rows
+2026-02-04 10:14:37,787 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:37,787 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:44,366 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:14:44,366 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:14:44,366 | src.DataPipeline.etl_pipeline | INFO |   Rows: 445,909 → 445,708
+2026-02-04 10:14:44,383 | src.DataPipeline.etl_pipeline | INFO | 
+[8/8] Processing Wednesday_workingHours_ISCX.csv
+2026-02-04 10:14:44,383 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:44,383 | src.DataPipeline.etl_pipeline | INFO | Processing: Wednesday_workingHours_ISCX.csv
+2026-02-04 10:14:44,383 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:44,383 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:14:44,383 | src.DataPipeline.data_reader | INFO | Reading file: Wednesday_workingHours_ISCX.csv
+2026-02-04 10:14:46,360 | src.DataPipeline.data_reader | INFO | Read 692,703 rows with 79 columns
+2026-02-04 10:14:46,360 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:14:46,360 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 692,703 rows
+2026-02-04 10:14:46,360 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:14:46,612 | src.DataPipeline.data_cleaner | INFO | Found 1586 Infinity values
+2026-02-04 10:14:46,635 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:14:46,676 | src.DataPipeline.data_cleaner | INFO | Found 1008 missing values
+2026-02-04 10:14:46,802 | src.DataPipeline.data_cleaner | INFO | Dropped 1008 rows with missing values
+2026-02-04 10:14:46,802 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 691,695 rows (1,008 dropped)
+2026-02-04 10:14:46,803 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:14:46,803 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:14:46,946 | src.DataPipeline.data_validator | INFO | ✓ No infinity values found
+2026-02-04 10:14:46,987 | src.DataPipeline.data_validator | INFO | ✓ No missing values found
+2026-02-04 10:14:46,988 | src.DataPipeline.data_validator | INFO | ✓ Schema validated: 79 columns
+2026-02-04 10:14:46,988 | src.DataPipeline.data_validator | INFO | ✓ Data types: 79 columns
+2026-02-04 10:14:47,775 | src.DataPipeline.data_validator | WARNING | Found 80962 duplicate rows
+2026-02-04 10:14:47,775 | src.DataPipeline.data_validator | INFO | ✓ All validation checks passed
+2026-02-04 10:14:47,776 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:14:58,280 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Wednesday_workingHours_ISCX.csv
+2026-02-04 10:14:58,281 | src.DataPipeline.etl_pipeline | INFO | ✓ Successfully processed Wednesday_workingHours_ISCX.csv
+2026-02-04 10:14:58,281 | src.DataPipeline.etl_pipeline | INFO |   Rows: 692,703 → 691,695
+2026-02-04 10:14:58,297 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:14:58,297 | src.DataPipeline.etl_pipeline | INFO | ETL PIPELINE SUMMARY
+2026-02-04 10:14:58,297 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:14:58,297 | __main__ | ERROR | ETL Pipeline failed: Object of type int64 is not JSON serializable
+Traceback (most recent call last):
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/run_etl.py", line 137, in main
+    stats = pipeline.run()
+            ^^^^^^^^^^^^^^
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/etl_pipeline.py", line 275, in run
+    return self.process_all_files()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/etl_pipeline.py", line 220, in process_all_files
+    self.generate_summary_report()
+  File "/home/charitha/CICIDS-2017/IDS-ML-CIC/src/DataPipeline/etl_pipeline.py", line 263, in generate_summary_report
+    json.dump(stats, f, indent=2)
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/charitha/.local/share/uv/python/cpython-3.11.13-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int64 is not JSON serializable
+2026-02-04 10:21:06,156 | utils.config_loader | INFO | Config loaded successfully
+2026-02-04 10:21:06,157 | src.DataPipeline.data_reader | INFO | DataReader initialized with pandas backend
+2026-02-04 10:21:06,157 | src.DataPipeline.data_cleaner | INFO | DataCleaner initialized (Inf: max, NaN: drop)
+2026-02-04 10:21:06,157 | src.DataPipeline.data_validator | INFO | DataValidator initialized
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | ETL Pipeline initialized
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | Raw directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/raw
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | Processed directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed
+2026-02-04 10:21:06,157 | __main__ | INFO | Processing single file: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | Processing: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:21:06,157 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:21:06,158 | src.DataPipeline.data_reader | INFO | Reading file: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:21:07,813 | src.DataPipeline.data_reader | INFO | Read 529,918 rows with 79 columns
+2026-02-04 10:21:07,813 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:21:07,813 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 529,918 rows
+2026-02-04 10:21:07,813 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:21:07,998 | src.DataPipeline.data_cleaner | INFO | Found 810 Infinity values
+2026-02-04 10:21:08,022 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:21:08,056 | src.DataPipeline.data_cleaner | INFO | Found 64 missing values
+2026-02-04 10:21:08,217 | src.DataPipeline.data_cleaner | INFO | Dropped 64 rows with missing values
+2026-02-04 10:21:08,218 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 529,854 rows (64 dropped)
+2026-02-04 10:21:08,223 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:21:08,223 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:21:08,325 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:21:08,359 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:21:08,359 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:21:09,054 | src.DataPipeline.data_validator | WARNING | Found 26927 duplicate rows
+2026-02-04 10:21:09,055 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:21:09,055 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:21:18,044 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Monday_WorkingHours_ISCX.csv
+2026-02-04 10:21:18,045 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Monday_WorkingHours_ISCX.csv
+2026-02-04 10:21:18,045 | src.DataPipeline.etl_pipeline | INFO |   Rows: 529,918 -> 529,854
+2026-02-04 10:21:18,054 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:21:18,054 | src.DataPipeline.etl_pipeline | INFO | ETL PIPELINE SUMMARY
+2026-02-04 10:21:18,055 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:21:18,055 | src.DataPipeline.etl_pipeline | INFO | 
+Detailed report saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/artifacts/reports/etl_report_20260204_102118.json
+2026-02-04 10:21:18,055 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+
+2026-02-04 10:22:15,219 | utils.config_loader | INFO | Config loaded successfully
+2026-02-04 10:22:15,219 | src.DataPipeline.data_reader | INFO | DataReader initialized with pandas backend
+2026-02-04 10:22:15,219 | src.DataPipeline.data_cleaner | INFO | DataCleaner initialized (Inf: max, NaN: drop)
+2026-02-04 10:22:15,219 | src.DataPipeline.data_validator | INFO | DataValidator initialized
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | ETL Pipeline initialized
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | Raw directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/raw
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | Processed directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed
+2026-02-04 10:22:15,219 | __main__ | INFO | Processing all files in raw directory
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | STARTING ETL PIPELINE
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:15,219 | src.DataPipeline.data_reader | INFO | Found 8 CSV files in /home/charitha/CICIDS-2017/IDS-ML-CIC/data/raw
+2026-02-04 10:22:15,219 | src.DataPipeline.etl_pipeline | INFO | Found 8 CSV files to process
+
+2026-02-04 10:22:15,219 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:22:15,836 | src.DataPipeline.data_reader | INFO | Read 225,745 rows with 79 columns
+2026-02-04 10:22:15,837 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:15,837 | src.DataPipeline.etl_pipeline | INFO | Using schema from Friday_WorkingHours_Afternoon_DDos_ISCX.csv (79 columns)
+
+2026-02-04 10:22:15,837 | src.DataPipeline.etl_pipeline | INFO | 
+[1/8] Processing Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:22:15,837 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:15,837 | src.DataPipeline.etl_pipeline | INFO | Processing: Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:22:15,837 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:15,837 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:15,837 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:22:16,392 | src.DataPipeline.data_reader | INFO | Read 225,745 rows with 79 columns
+2026-02-04 10:22:16,393 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:16,393 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 225,745 rows
+2026-02-04 10:22:16,393 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:16,463 | src.DataPipeline.data_cleaner | INFO | Found 64 Infinity values
+2026-02-04 10:22:16,476 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:16,490 | src.DataPipeline.data_cleaner | INFO | Found 4 missing values
+2026-02-04 10:22:16,559 | src.DataPipeline.data_cleaner | INFO | Dropped 4 rows with missing values
+2026-02-04 10:22:16,559 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 225,741 rows (4 dropped)
+2026-02-04 10:22:16,559 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:16,559 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:16,627 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:16,641 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:16,642 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:16,642 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:16,854 | src.DataPipeline.data_validator | WARNING | Found 2633 duplicate rows
+2026-02-04 10:22:16,854 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:16,854 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:20,328 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:22:20,328 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Friday_WorkingHours_Afternoon_DDos_ISCX.csv
+2026-02-04 10:22:20,328 | src.DataPipeline.etl_pipeline | INFO |   Rows: 225,745 -> 225,741
+2026-02-04 10:22:20,336 | src.DataPipeline.etl_pipeline | INFO | 
+[2/8] Processing Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:22:20,336 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:20,336 | src.DataPipeline.etl_pipeline | INFO | Processing: Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:22:20,336 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:20,336 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:20,336 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:22:21,007 | src.DataPipeline.data_reader | INFO | Read 286,467 rows with 79 columns
+2026-02-04 10:22:21,007 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:21,007 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 286,467 rows
+2026-02-04 10:22:21,008 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:21,099 | src.DataPipeline.data_cleaner | INFO | Found 727 Infinity values
+2026-02-04 10:22:21,111 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:21,129 | src.DataPipeline.data_cleaner | INFO | Found 15 missing values
+2026-02-04 10:22:21,207 | src.DataPipeline.data_cleaner | INFO | Dropped 15 rows with missing values
+2026-02-04 10:22:21,207 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 286,452 rows (15 dropped)
+2026-02-04 10:22:21,208 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:21,208 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:21,279 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:21,296 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:21,297 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:21,297 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:21,524 | src.DataPipeline.data_validator | WARNING | Found 72353 duplicate rows
+2026-02-04 10:22:21,524 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:21,524 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:25,334 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:22:25,334 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Friday_WorkingHours_Afternoon_PortScan_ISCX.csv
+2026-02-04 10:22:25,334 | src.DataPipeline.etl_pipeline | INFO |   Rows: 286,467 -> 286,452
+2026-02-04 10:22:25,346 | src.DataPipeline.etl_pipeline | INFO | 
+[3/8] Processing Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:22:25,346 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:25,346 | src.DataPipeline.etl_pipeline | INFO | Processing: Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:22:25,346 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:25,346 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:25,346 | src.DataPipeline.data_reader | INFO | Reading file: Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:22:25,821 | src.DataPipeline.data_reader | INFO | Read 191,033 rows with 79 columns
+2026-02-04 10:22:25,821 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:25,822 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 191,033 rows
+2026-02-04 10:22:25,822 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:25,859 | src.DataPipeline.data_cleaner | INFO | Found 216 Infinity values
+2026-02-04 10:22:25,870 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:25,882 | src.DataPipeline.data_cleaner | INFO | Found 28 missing values
+2026-02-04 10:22:25,938 | src.DataPipeline.data_cleaner | INFO | Dropped 28 rows with missing values
+2026-02-04 10:22:25,938 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 191,005 rows (28 dropped)
+2026-02-04 10:22:25,939 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:25,939 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:25,975 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:25,988 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:25,988 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:25,988 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:26,161 | src.DataPipeline.data_validator | WARNING | Found 6888 duplicate rows
+2026-02-04 10:22:26,161 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:26,161 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:29,025 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:22:29,025 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Friday_WorkingHours_Morning_ISCX.csv
+2026-02-04 10:22:29,025 | src.DataPipeline.etl_pipeline | INFO |   Rows: 191,033 -> 191,005
+2026-02-04 10:22:29,032 | src.DataPipeline.etl_pipeline | INFO | 
+[4/8] Processing Monday_WorkingHours_ISCX.csv
+2026-02-04 10:22:29,032 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:29,032 | src.DataPipeline.etl_pipeline | INFO | Processing: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:22:29,032 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:29,032 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:29,032 | src.DataPipeline.data_reader | INFO | Reading file: Monday_WorkingHours_ISCX.csv
+2026-02-04 10:22:30,553 | src.DataPipeline.data_reader | INFO | Read 529,918 rows with 79 columns
+2026-02-04 10:22:30,553 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:30,553 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 529,918 rows
+2026-02-04 10:22:30,554 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:30,703 | src.DataPipeline.data_cleaner | INFO | Found 810 Infinity values
+2026-02-04 10:22:30,721 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:30,750 | src.DataPipeline.data_cleaner | INFO | Found 64 missing values
+2026-02-04 10:22:30,871 | src.DataPipeline.data_cleaner | INFO | Dropped 64 rows with missing values
+2026-02-04 10:22:30,871 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 529,854 rows (64 dropped)
+2026-02-04 10:22:30,872 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:30,872 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:31,051 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:31,081 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:31,081 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:31,081 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:31,658 | src.DataPipeline.data_validator | WARNING | Found 26927 duplicate rows
+2026-02-04 10:22:31,658 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:31,658 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:40,182 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Monday_WorkingHours_ISCX.csv
+2026-02-04 10:22:40,183 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Monday_WorkingHours_ISCX.csv
+2026-02-04 10:22:40,183 | src.DataPipeline.etl_pipeline | INFO |   Rows: 529,918 -> 529,854
+2026-02-04 10:22:40,202 | src.DataPipeline.etl_pipeline | INFO | 
+[5/8] Processing Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:22:40,203 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:40,203 | src.DataPipeline.etl_pipeline | INFO | Processing: Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:22:40,203 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:40,203 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:40,203 | src.DataPipeline.data_reader | INFO | Reading file: Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:22:40,899 | src.DataPipeline.data_reader | INFO | Read 288,602 rows with 79 columns
+2026-02-04 10:22:40,899 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:40,899 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 288,602 rows
+2026-02-04 10:22:40,899 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:40,951 | src.DataPipeline.data_cleaner | INFO | Found 396 Infinity values
+2026-02-04 10:22:40,963 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:40,981 | src.DataPipeline.data_cleaner | INFO | Found 18 missing values
+2026-02-04 10:22:41,062 | src.DataPipeline.data_cleaner | INFO | Dropped 18 rows with missing values
+2026-02-04 10:22:41,062 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 288,584 rows (18 dropped)
+2026-02-04 10:22:41,062 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:41,062 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:41,113 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:41,131 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:41,131 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:41,131 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:41,388 | src.DataPipeline.data_validator | WARNING | Found 35627 duplicate rows
+2026-02-04 10:22:41,388 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:41,388 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:45,478 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:22:45,478 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv
+2026-02-04 10:22:45,478 | src.DataPipeline.etl_pipeline | INFO |   Rows: 288,602 -> 288,584
+2026-02-04 10:22:45,489 | src.DataPipeline.etl_pipeline | INFO | 
+[6/8] Processing Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:22:45,489 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:45,489 | src.DataPipeline.etl_pipeline | INFO | Processing: Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:22:45,489 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:45,489 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:45,490 | src.DataPipeline.data_reader | INFO | Reading file: Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:22:45,912 | src.DataPipeline.data_reader | INFO | Read 170,366 rows with 79 columns
+2026-02-04 10:22:45,912 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:45,912 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 170,366 rows
+2026-02-04 10:22:45,912 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:45,945 | src.DataPipeline.data_cleaner | INFO | Found 250 Infinity values
+2026-02-04 10:22:45,954 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:45,964 | src.DataPipeline.data_cleaner | INFO | Found 20 missing values
+2026-02-04 10:22:46,014 | src.DataPipeline.data_cleaner | INFO | Dropped 20 rows with missing values
+2026-02-04 10:22:46,015 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 170,346 rows (20 dropped)
+2026-02-04 10:22:46,015 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:46,015 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:46,045 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:46,056 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:46,056 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:46,056 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:46,208 | src.DataPipeline.data_validator | WARNING | Found 6065 duplicate rows
+2026-02-04 10:22:46,208 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:46,208 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:48,698 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:22:48,699 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv
+2026-02-04 10:22:48,699 | src.DataPipeline.etl_pipeline | INFO |   Rows: 170,366 -> 170,346
+2026-02-04 10:22:48,703 | src.DataPipeline.etl_pipeline | INFO | 
+[7/8] Processing Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:22:48,703 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:48,703 | src.DataPipeline.etl_pipeline | INFO | Processing: Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:22:48,703 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:48,703 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:48,704 | src.DataPipeline.data_reader | INFO | Reading file: Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:22:49,942 | src.DataPipeline.data_reader | INFO | Read 445,909 rows with 79 columns
+2026-02-04 10:22:49,942 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:49,942 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 445,909 rows
+2026-02-04 10:22:49,943 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:50,110 | src.DataPipeline.data_cleaner | INFO | Found 327 Infinity values
+2026-02-04 10:22:50,128 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:50,155 | src.DataPipeline.data_cleaner | INFO | Found 201 missing values
+2026-02-04 10:22:50,290 | src.DataPipeline.data_cleaner | INFO | Dropped 201 rows with missing values
+2026-02-04 10:22:50,290 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 445,708 rows (201 dropped)
+2026-02-04 10:22:50,291 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:50,291 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:22:50,439 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:22:50,467 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:22:50,467 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:22:50,468 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:22:50,968 | src.DataPipeline.data_validator | WARNING | Found 24025 duplicate rows
+2026-02-04 10:22:50,968 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:22:50,968 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:22:57,652 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:22:57,652 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Tuesday_WorkingHours_ISCX.csv
+2026-02-04 10:22:57,652 | src.DataPipeline.etl_pipeline | INFO |   Rows: 445,909 -> 445,708
+2026-02-04 10:22:57,671 | src.DataPipeline.etl_pipeline | INFO | 
+[8/8] Processing Wednesday_workingHours_ISCX.csv
+2026-02-04 10:22:57,672 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:22:57,672 | src.DataPipeline.etl_pipeline | INFO | Processing: Wednesday_workingHours_ISCX.csv
+2026-02-04 10:22:57,672 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:22:57,672 | src.DataPipeline.etl_pipeline | INFO | Step 1/4: Reading data...
+2026-02-04 10:22:57,672 | src.DataPipeline.data_reader | INFO | Reading file: Wednesday_workingHours_ISCX.csv
+2026-02-04 10:22:59,570 | src.DataPipeline.data_reader | INFO | Read 692,703 rows with 79 columns
+2026-02-04 10:22:59,570 | src.DataPipeline.etl_pipeline | INFO | Step 2/4: Cleaning data...
+2026-02-04 10:22:59,570 | src.DataPipeline.data_cleaner | INFO | Starting data cleaning on 692,703 rows
+2026-02-04 10:22:59,570 | src.DataPipeline.data_cleaner | INFO | Column names cleaned: 78/79 columns modified
+2026-02-04 10:22:59,804 | src.DataPipeline.data_cleaner | INFO | Found 1586 Infinity values
+2026-02-04 10:22:59,826 | src.DataPipeline.data_cleaner | INFO | Replaced Infinity values with column maximums
+2026-02-04 10:22:59,864 | src.DataPipeline.data_cleaner | INFO | Found 1008 missing values
+2026-02-04 10:22:59,994 | src.DataPipeline.data_cleaner | INFO | Dropped 1008 rows with missing values
+2026-02-04 10:22:59,994 | src.DataPipeline.data_cleaner | INFO | Cleaning complete: 691,695 rows (1,008 dropped)
+2026-02-04 10:22:59,995 | src.DataPipeline.etl_pipeline | INFO | Step 3/4: Validating data...
+2026-02-04 10:22:59,995 | src.DataPipeline.data_validator | INFO | Running all validation checks
+2026-02-04 10:23:00,137 | src.DataPipeline.data_validator | INFO | No infinity values found
+2026-02-04 10:23:00,174 | src.DataPipeline.data_validator | INFO | No missing values found
+2026-02-04 10:23:00,175 | src.DataPipeline.data_validator | INFO | Schema validated: 79 columns
+2026-02-04 10:23:00,175 | src.DataPipeline.data_validator | INFO | Data types: 79 columns
+2026-02-04 10:23:00,966 | src.DataPipeline.data_validator | WARNING | Found 80962 duplicate rows
+2026-02-04 10:23:00,966 | src.DataPipeline.data_validator | INFO | All validation checks passed
+2026-02-04 10:23:00,966 | src.DataPipeline.etl_pipeline | INFO | Step 4/4: Saving processed data...
+2026-02-04 10:23:11,543 | src.DataPipeline.etl_pipeline | INFO | Saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Wednesday_workingHours_ISCX.csv
+2026-02-04 10:23:11,543 | src.DataPipeline.etl_pipeline | INFO | Successfully processed Wednesday_workingHours_ISCX.csv
+2026-02-04 10:23:11,544 | src.DataPipeline.etl_pipeline | INFO |   Rows: 692,703 -> 691,695
+2026-02-04 10:23:11,561 | src.DataPipeline.etl_pipeline | INFO | 
+======================================================================
+2026-02-04 10:23:11,561 | src.DataPipeline.etl_pipeline | INFO | ETL PIPELINE SUMMARY
+2026-02-04 10:23:11,561 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+2026-02-04 10:23:11,562 | src.DataPipeline.etl_pipeline | INFO | 
+Detailed report saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/artifacts/reports/etl_report_20260204_102311.json
+2026-02-04 10:23:11,562 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
+
