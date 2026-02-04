@@ -4,6 +4,52 @@ data_paths:
     processed: "data/processed/"
     intermediate: "data/intermediate/"
     reports: "artifacts/reports/"
+    parquet: "data/parquet/"
+
+# Kafka configuration
+kafka:
+    bootstrap_servers: ["localhost:9092"]
+    topic: "cicids-network-flows"
+    partitions: 8
+    replication_factor: 1
+    
+    # Producer settings
+    producer:
+        acks: "all"  # Wait for all replicas
+        retries: 3
+        batch_size: 16384
+        linger_ms: 10
+        compression_type: "snappy"
+        partition_by: "Source_IP"
+        buffer_memory: 33554432  # 32MB
+    
+    # Consumer settings
+    consumer:
+        group_id: "cicids-parquet-writer"
+        auto_offset_reset: "earliest"
+        enable_auto_commit: false
+        max_poll_records: 500
+
+# Schema Registry (Karapace)
+schema_registry:
+    url: "http://localhost:8081"
+    enabled: false  # Set to true when Karapace is running
+
+# Parquet storage configuration
+parquet:
+    output_path: "data/parquet/"
+    compression: "snappy"  # Options: snappy, gzip, brotli, lz4
+    partition_cols: []  # Time-based partitioning: ["date", "hour"]
+    checkpoint_location: "artifacts/checkpoints/"
+    row_group_size: 128  # MB
+    page_size: 1024  # KB
+    
+    # PySpark streaming settings
+    spark:
+        app_name: "CICIDS-Kafka-Consumer"
+        master: "local[*]"  # Use all cores
+        trigger_interval: "10 seconds"
+        max_offsets_per_trigger: 10000
 
 # ETL Pipeline configuration
 etl:
