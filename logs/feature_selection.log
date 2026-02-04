@@ -1,0 +1,48 @@
+2026-02-04 15:55:39,310 | __main__ | INFO | 
+======================================================================
+2026-02-04 15:55:39,310 | __main__ | INFO | FEATURE SELECTION PIPELINE
+2026-02-04 15:55:39,310 | __main__ | INFO | ======================================================================
+2026-02-04 15:55:39,310 | __main__ | INFO | Start time: 2026-02-04 15:55:39
+
+2026-02-04 15:55:39,310 | __main__ | INFO | Step 1/5: Loading data...
+2026-02-04 15:55:40,708 | __main__ | INFO | Step 2/5: Cleaning data...
+2026-02-04 15:55:40,708 | __main__ | INFO | Training set:
+2026-02-04 15:55:42,295 | __main__ | INFO | 
+Test set:
+2026-02-04 15:55:42,637 | __main__ | INFO | Step 3/5: Analyzing features...
+2026-02-04 15:56:04,680 | __main__ | INFO | 
+Feature filtering summary:
+2026-02-04 15:56:04,680 | __main__ | INFO |   Original features: 78
+2026-02-04 15:56:04,680 | __main__ | INFO |   Highly correlated: 23
+2026-02-04 15:56:04,680 | __main__ | INFO |   Low variance: 12
+2026-02-04 15:56:04,680 | __main__ | INFO |   Identity features: 5
+2026-02-04 15:56:04,680 | __main__ | INFO |   Clean features remaining: 43
+2026-02-04 15:56:04,681 | __main__ | INFO | Step 4/5: Ranking features by importance...
+2026-02-04 15:56:06,759 | __main__ | INFO | Step 5/5: Saving feature selection results...
+2026-02-04 15:56:06,764 | __main__ | INFO | 
+======================================================================
+2026-02-04 15:56:06,764 | __main__ | INFO | FEATURE SELECTION COMPLETE
+2026-02-04 15:56:06,764 | __main__ | INFO | ======================================================================
+2026-02-04 15:56:06,764 | __main__ | INFO | 
+Selected Features: 30
+2026-02-04 15:56:06,764 | __main__ | INFO | 
+Top 10 Features:
+2026-02-04 15:56:06,764 | __main__ | INFO |   1. Packet_Length_Variance
+2026-02-04 15:56:06,764 | __main__ | INFO |   2. Bwd_Packet_Length_Max
+2026-02-04 15:56:06,764 | __main__ | INFO |   3. Fwd_IAT_Std
+2026-02-04 15:56:06,764 | __main__ | INFO |   4. Flow_IAT_Max
+2026-02-04 15:56:06,764 | __main__ | INFO |   5. Packet_Length_Mean
+2026-02-04 15:56:06,764 | __main__ | INFO |   6. Flow_Packets/s
+2026-02-04 15:56:06,764 | __main__ | INFO |   7. Init_Win_bytes_forward
+2026-02-04 15:56:06,764 | __main__ | INFO |   8. Fwd_IAT_Mean
+2026-02-04 15:56:06,764 | __main__ | INFO |   9. Flow_IAT_Std
+2026-02-04 15:56:06,764 | __main__ | INFO |   10. Bwd_Packets/s
+2026-02-04 15:56:06,764 | __main__ | INFO | 
+Results saved to: artifacts/features
+2026-02-04 15:56:06,764 | __main__ | INFO |   - correlation_matrix.png
+2026-02-04 15:56:06,764 | __main__ | INFO |   - feature_importance.csv
+2026-02-04 15:56:06,764 | __main__ | INFO |   - selected_features.json
+2026-02-04 15:56:06,764 | __main__ | INFO |   - feature_selection_report.txt
+2026-02-04 15:56:06,764 | __main__ | INFO | 
+======================================================================
+
