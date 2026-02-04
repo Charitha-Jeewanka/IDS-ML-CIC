@@ -625,3 +625,81 @@ Detailed report saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/artifacts/report
 Detailed report saved to: /home/charitha/CICIDS-2017/IDS-ML-CIC/artifacts/reports/etl_report_20260204_102311.json
 2026-02-04 10:23:11,562 | src.DataPipeline.etl_pipeline | INFO | ======================================================================
 
+2026-02-04 15:55:39,316 | src.InferencePipeline.preprocessor | INFO | DataPreprocessor initialized
+2026-02-04 15:55:39,317 | src.InferencePipeline.preprocessor | INFO | Data directory: /home/charitha/CICIDS-2017/IDS-ML-CIC/data/parquet
+2026-02-04 15:55:39,317 | src.InferencePipeline.preprocessor | INFO | Scaling method: standard
+2026-02-04 15:55:39,317 | src.InferencePipeline.preprocessor | INFO | SMOTE enabled: True
+2026-02-04 15:55:39,317 | src.InferencePipeline.preprocessor | INFO | 
+======================================================================
+2026-02-04 15:55:39,317 | src.InferencePipeline.preprocessor | INFO | LOADING DATA WITH TEMPORAL SPLIT
+2026-02-04 15:55:39,318 | src.InferencePipeline.preprocessor | INFO | ======================================================================
+2026-02-04 15:55:39,318 | src.InferencePipeline.preprocessor | INFO | 
+Training Set (Monday-Thursday):
+2026-02-04 15:55:39,318 | src.InferencePipeline.preprocessor | INFO | Loading 5 Parquet files...
+2026-02-04 15:55:39,318 | src.InferencePipeline.preprocessor | INFO |   Loading: Monday_WorkingHours_ISCX.parquet
+2026-02-04 15:55:39,502 | src.InferencePipeline.preprocessor | INFO |     Rows: 529,854, Columns: 79
+2026-02-04 15:55:39,502 | src.InferencePipeline.preprocessor | INFO |   Loading: Tuesday_WorkingHours_ISCX.parquet
+2026-02-04 15:55:39,613 | src.InferencePipeline.preprocessor | INFO |     Rows: 445,708, Columns: 79
+2026-02-04 15:55:39,614 | src.InferencePipeline.preprocessor | INFO |   Loading: Wednesday_workingHours_ISCX.parquet
+2026-02-04 15:55:39,774 | src.InferencePipeline.preprocessor | INFO |     Rows: 691,695, Columns: 79
+2026-02-04 15:55:39,774 | src.InferencePipeline.preprocessor | INFO |   Loading: Thursday_WorkingHours_Morning_WebAttacks_ISCX.parquet
+2026-02-04 15:55:39,807 | src.InferencePipeline.preprocessor | INFO |     Rows: 170,346, Columns: 79
+2026-02-04 15:55:39,808 | src.InferencePipeline.preprocessor | INFO |   Loading: Thursday_WorkingHours_Afternoon_Infilteration_ISCX.parquet
+2026-02-04 15:55:39,862 | src.InferencePipeline.preprocessor | INFO |     Rows: 288,584, Columns: 79
+2026-02-04 15:55:39,862 | src.InferencePipeline.preprocessor | INFO | Concatenating 5 DataFrames...
+2026-02-04 15:55:40,412 | src.InferencePipeline.preprocessor | INFO | Total rows loaded: 2,126,187
+2026-02-04 15:55:40,448 | src.InferencePipeline.preprocessor | INFO | 
+Test Set (Friday):
+2026-02-04 15:55:40,449 | src.InferencePipeline.preprocessor | INFO | Loading 3 Parquet files...
+2026-02-04 15:55:40,449 | src.InferencePipeline.preprocessor | INFO |   Loading: Friday_WorkingHours_Morning_ISCX.parquet
+2026-02-04 15:55:40,505 | src.InferencePipeline.preprocessor | INFO |     Rows: 191,005, Columns: 79
+2026-02-04 15:55:40,505 | src.InferencePipeline.preprocessor | INFO |   Loading: Friday_WorkingHours_Afternoon_DDos_ISCX.parquet
+2026-02-04 15:55:40,553 | src.InferencePipeline.preprocessor | INFO |     Rows: 225,741, Columns: 79
+2026-02-04 15:55:40,554 | src.InferencePipeline.preprocessor | INFO |   Loading: Friday_WorkingHours_Afternoon_PortScan_ISCX.parquet
+2026-02-04 15:55:40,598 | src.InferencePipeline.preprocessor | INFO |     Rows: 286,452, Columns: 79
+2026-02-04 15:55:40,598 | src.InferencePipeline.preprocessor | INFO | Concatenating 3 DataFrames...
+2026-02-04 15:55:40,695 | src.InferencePipeline.preprocessor | INFO | Total rows loaded: 703,198
+2026-02-04 15:55:40,707 | src.InferencePipeline.preprocessor | INFO | 
+======================================================================
+2026-02-04 15:55:40,708 | src.InferencePipeline.preprocessor | INFO | Training samples: 2,126,187
+2026-02-04 15:55:40,708 | src.InferencePipeline.preprocessor | INFO | Test samples: 703,198
+2026-02-04 15:55:40,708 | src.InferencePipeline.preprocessor | INFO | ======================================================================
+
+2026-02-04 15:55:42,642 | src.InferencePipeline.feature_engineer | INFO | FeatureEngineer initialized
+2026-02-04 15:55:42,642 | src.InferencePipeline.feature_engineer | INFO | Correlation threshold: 0.95
+2026-02-04 15:55:42,642 | src.InferencePipeline.feature_engineer | INFO | Variance threshold: 0.01
+2026-02-04 15:55:42,643 | src.InferencePipeline.feature_engineer | INFO | Max features: 30
+2026-02-04 15:55:42,643 | src.InferencePipeline.feature_engineer | INFO | 
+Analyzing correlations (threshold=0.95)...
+2026-02-04 15:55:43,359 | src.InferencePipeline.feature_engineer | INFO |   Numeric features: 78
+2026-02-04 15:56:00,928 | src.InferencePipeline.feature_engineer | INFO |   Highly correlated features to drop: 23
+2026-02-04 15:56:01,597 | src.InferencePipeline.feature_engineer | INFO |   Saved correlation heatmap: artifacts/features/correlation_matrix.png
+2026-02-04 15:56:01,597 | src.InferencePipeline.feature_engineer | INFO | 
+Removing low-variance features (threshold=0.01)...
+2026-02-04 15:56:04,680 | src.InferencePipeline.feature_engineer | INFO |   Low-variance features: 12
+2026-02-04 15:56:04,680 | src.InferencePipeline.feature_engineer | INFO | 
+Separating behavior vs identity features...
+2026-02-04 15:56:04,680 | src.InferencePipeline.feature_engineer | INFO |   Behavior features: 73
+2026-02-04 15:56:04,680 | src.InferencePipeline.feature_engineer | INFO |   Identity features (to drop): 5
+2026-02-04 15:56:05,224 | src.InferencePipeline.preprocessor | INFO | Features: 43, Samples: 2126187
+2026-02-04 15:56:05,278 | src.InferencePipeline.feature_engineer | INFO | 
+Ranking features using random_forest...
+2026-02-04 15:56:05,278 | src.InferencePipeline.feature_engineer | INFO |   Sampling 100K rows for preliminary ranking...
+2026-02-04 15:56:05,348 | src.InferencePipeline.feature_engineer | INFO |   Training Random Forest (100 trees)...
+2026-02-04 15:56:06,756 | src.InferencePipeline.feature_engineer | INFO |   Top 10 features by importance:
+2026-02-04 15:56:06,756 | src.InferencePipeline.feature_engineer | INFO |     1. Packet_Length_Variance: 0.1325
+2026-02-04 15:56:06,757 | src.InferencePipeline.feature_engineer | INFO |     2. Bwd_Packet_Length_Max: 0.1093
+2026-02-04 15:56:06,757 | src.InferencePipeline.feature_engineer | INFO |     3. Fwd_IAT_Std: 0.0738
+2026-02-04 15:56:06,757 | src.InferencePipeline.feature_engineer | INFO |     4. Flow_IAT_Max: 0.0663
+2026-02-04 15:56:06,757 | src.InferencePipeline.feature_engineer | INFO |     5. Packet_Length_Mean: 0.0567
+2026-02-04 15:56:06,758 | src.InferencePipeline.feature_engineer | INFO |     6. Flow_Packets/s: 0.0536
+2026-02-04 15:56:06,758 | src.InferencePipeline.feature_engineer | INFO |     7. Init_Win_bytes_forward: 0.0501
+2026-02-04 15:56:06,758 | src.InferencePipeline.feature_engineer | INFO |     8. Fwd_IAT_Mean: 0.0407
+2026-02-04 15:56:06,758 | src.InferencePipeline.feature_engineer | INFO |     9. Flow_IAT_Std: 0.0388
+2026-02-04 15:56:06,758 | src.InferencePipeline.feature_engineer | INFO |     10. Bwd_Packets/s: 0.0358
+2026-02-04 15:56:06,759 | src.InferencePipeline.feature_engineer | INFO | 
+Selected top 30 features
+2026-02-04 15:56:06,761 | src.InferencePipeline.feature_engineer | INFO | 
+Saved feature importance: artifacts/features/feature_importance.csv
+2026-02-04 15:56:06,761 | src.InferencePipeline.feature_engineer | INFO | Saved selected features: artifacts/features/selected_features.json
+2026-02-04 15:56:06,764 | src.InferencePipeline.feature_engineer | INFO | Saved feature selection report: artifacts/features/feature_selection_report.txt

@@ -1,0 +1,26 @@
+FEATURE SELECTION REPORT
+======================================================================
+
+Total features selected: 30
+
+Top 20 Features:
+ 1. Packet_Length_Variance                             0.1325
+ 2. Bwd_Packet_Length_Max                              0.1093
+ 3. Fwd_IAT_Std                                        0.0738
+ 4. Flow_IAT_Max                                       0.0663
+ 5. Packet_Length_Mean                                 0.0567
+ 6. Flow_Packets/s                                     0.0536
+ 7. Init_Win_bytes_forward                             0.0501
+ 8. Fwd_IAT_Mean                                       0.0407
+ 9. Flow_IAT_Std                                       0.0388
+10. Bwd_Packets/s                                      0.0358
+11. Fwd_Header_Length                                  0.0302
+12. Init_Win_bytes_backward                            0.0278
+13. Total_Length_of_Fwd_Packets                        0.0248
+14. Flow_Duration                                      0.0240
+15. Flow_IAT_Mean                                      0.0221
+16. Fwd_Packet_Length_Max                              0.0215
+17. Flow_Bytes/s                                       0.0210
+18. Bwd_Header_Length                                  0.0202
+19. Fwd_Packet_Length_Mean                             0.0188
+20. Fwd_Packet_Length_Std                              0.0179

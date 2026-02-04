@@ -99,3 +99,100 @@ logging:
     format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
     log_to_file: true
     log_file: "logs/etl_pipeline.log"
+
+# ML Pipeline configuration
+ml:
+    model_type: "xgboost"  # Options: "xgboost", "lightgbm"
+    data_dir: "data/parquet/"
+    
+    # Temporal split: Monday-Thursday for training
+    train_files:
+      - "Monday_WorkingHours_ISCX.parquet"
+      - "Tuesday_WorkingHours_ISCX.parquet"
+      - "Wednesday_workingHours_ISCX.parquet"
+      - "Thursday_WorkingHours_Morning_WebAttacks_ISCX.parquet"
+      - "Thursday_WorkingHours_Afternoon_Infilteration_ISCX.parquet"
+    
+    # Friday for testing (future attacks)
+    test_files:
+      - "Friday_WorkingHours_Morning_ISCX.parquet"
+      - "Friday_WorkingHours_Afternoon_DDos_ISCX.parquet"
+      - "Friday_WorkingHours_Afternoon_PortScan_ISCX.parquet"
+    
+    # Model configuration
+    target_column: "Label"
+    features_to_drop:
+      - "Source_IP"
+      - "Destination_IP"
+      - "Source_Port"
+      - "Destination_Port"
+      - "Timestamp"
+    
+    # XGBoost hyperparameters
+    xgboost:
+      binary:
+        objective: "binary:logistic"
+        max_depth: 6
+        learning_rate: 0.1
+        n_estimators: 100
+        subsample: 0.8
+        colsample_bytree: 0.8
+        eval_metric: "auc"
+        tree_method: "hist"  # Fast for large datasets
+        random_state: 42
+        use_class_weights: true  # Handle imbalance
+      
+      multiclass:
+        objective: "multi:softprob"
+        max_depth: 8
+        learning_rate: 0.05
+        n_estimators: 200
+        subsample: 0.8
+        colsample_bytree: 0.8
+        eval_metric: "mlogloss"
+        tree_method: "hist"
+        random_state: 42
+    
+    # Feature engineering
+    feature_engineering:
+      correlation_threshold: 0.95  # Remove highly correlated features
+      variance_threshold: 0.01  # Remove low-variance features
+      max_features: 30  # Top N features to keep
+      feature_importance_method: "random_forest"  # Preliminary ranking
+    
+    # Class imbalance handling
+    class_imbalance:
+      use_smote: true
+      smote_strategy: "auto"  # Balance minority classes
+      smote_k_neighbors: 5
+      random_state: 42
+    
+    # Data preprocessing
+    preprocessing:
+      scaling_method: "standard"  # Options: "standard", "minmax", "robust"
+      handle_inf: "max"  # Replace infinity with max value
+      handle_nan: "drop"  # Drop rows with NaN
+    
+    # PowerBI export configuration
+    powerbi_export:
+      output_path: "data/powerbi/"
+      top_features: 10  # Top features to include for visualization
+      include_probabilities: true
+      include_shap_values: false  # Disabled: SHAP incompatible with Python 3.11
+      # Note: Using XGBoost native feature importance instead (gain, cover, weight)
+
+
+# MLflow configuration
+mlflow:
+  tracking_uri: "file:./mlruns"  # Local file-based tracking
+  experiment_name: "CICIDS-IDS-AutoML"
+  artifact_location: "artifacts/mlflow"
+  
+  # Auto-logging
+  autolog:
+    enabled: true
+    log_models: true
+    log_input_examples: true
+    log_model_signatures: true
+
+

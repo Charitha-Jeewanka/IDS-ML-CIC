@@ -15,3 +15,13 @@ pyspark
 pyarrow
 fastavro
 tqdm
+
+# ML dependencies
+xgboost
+lightgbm
+imbalanced-learn  # For SMOTE (class imbalance)
+mlflow
+scikit-learn
+matplotlib
+seaborn
+joblib  # For model persistence

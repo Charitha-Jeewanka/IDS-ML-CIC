@@ -24,6 +24,14 @@ help:
 	@echo "  make run-consumer     - Start PySpark consumer (Kafka -> Parquet)"
 	@echo "  make test-pipeline    - Test end-to-end pipeline"
 	@echo ""
+	@echo "Phase 4: ML Pipeline (XGBoost)"
+	@echo "  make feature-select   - Run feature selection and analysis"
+	@echo "  make train-binary     - Train binary XGBoost (BENIGN vs ATTACK)"
+	@echo "  make train-multiclass - Train multiclass XGBoost (attack types)"
+	@echo "  make export-powerbi   - Export scored data for PowerBI"
+	@echo "  make run-ml-pipeline  - Run complete ML pipeline"
+	@echo "  make mlflow-ui        - Start MLflow UI (http://localhost:5000)"
+	@echo ""
 	@echo "Utilities"
 	@echo "  make view-report      - View latest execution report"
 	@echo "  make view-logs        - View pipeline logs"
@@ -33,7 +41,7 @@ help:
 	@echo ""
 	@echo "Example usage:"
 	@echo "  make csv-to-parquet"
-	@echo "  make run-etl-file FILE=Monday_WorkingHours_ISCX.csv"
+	@echo "  make run-ml-pipeline"
 
 # Install dependencies
 install:
@@ -201,4 +209,43 @@ run-consumer:
 test-pipeline:
 	@echo "Running end-to-end pipeline test..."
 	python3 src/scripts/validate_pipeline.py
+
+# ============================================================================
+# Phase 4: ML Pipeline (XGBoost)
+# ============================================================================
+
+.PHONY: feature-select train-binary train-multiclass export-powerbi run-ml-pipeline mlflow-ui
+
+# Feature selection and analysis
+feature-select:
+	@echo "Running feature selection..."
+	python3 src/InferencePipeline/run_feature_selection.py
+
+# Train binary XGBoost classifier (BENIGN vs ATTACK)
+train-binary:
+	@echo "Training binary XGBoost classifier..."
+	python3 src/InferencePipeline/run_training.py --mode binary
+
+# Train multiclass XGBoost classifier (attack types)
+train-multiclass:
+	@echo "Training multiclass XGBoost classifier..."
+	python3 src/InferencePipeline/run_training.py --mode multiclass
+
+# Export scored data for PowerBI
+export-powerbi:
+	@echo "Exporting scored data for PowerBI..."
+	python3 src/InferencePipeline/powerbi_exporter.py
+
+# Run complete ML pipeline
+run-ml-pipeline:
+	@echo "Running complete ML pipeline..."
+	@make feature-select
+	@make train-binary
+	@make export-powerbi
+
+# Start MLflow UI
+mlflow-ui:
+	@echo "Starting MLflow UI at http://localhost:5000"
+	mlflow ui --port 5000
+
 
