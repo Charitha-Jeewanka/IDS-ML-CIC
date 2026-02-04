@@ -1,0 +1,41 @@
+{
+  "start_time": null,
+  "end_time": null,
+  "files_processed": 1,
+  "files_failed": 0,
+  "total_rows_input": 529918,
+  "total_rows_output": 529854,
+  "files": [
+    {
+      "filename": "Monday_WorkingHours_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:21:06.157870",
+      "original_rows": 529918,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 529918,
+        "columns_renamed": 78,
+        "infinity_values": 810,
+        "rows_dropped_nan": 64,
+        "missing_values": 64,
+        "final_rows": 529854,
+        "total_rows_dropped": 64
+      },
+      "final_rows": 529854,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 26927,
+        "total_rows": 529854,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Monday_WorkingHours_ISCX.csv",
+      "end_time": "2026-02-04T10:21:18.045200"
+    }
+  ]
+}

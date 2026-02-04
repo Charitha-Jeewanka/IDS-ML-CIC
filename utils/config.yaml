@@ -1,3 +1,55 @@
+# Data path configuration
 data_paths:
     raw: "data/raw/"
     processed: "data/processed/"
+    intermediate: "data/intermediate/"
+    reports: "artifacts/reports/"
+
+# ETL Pipeline configuration
+etl:
+    # Data reading settings
+    reader:
+        backend: "pandas"  # Options: "pandas"
+        chunk_size: 100000  # For large file processing
+        encoding: "utf-8"
+    
+    # Data cleaning strategies
+    cleaning:
+        # Infinity value handling
+        infinity:
+            strategy: "max"  # Options: "max", "large_int", "drop"
+            large_int_value: 1000000000  # Used when strategy is "large_int"
+        
+        # Missing value (NaN) handling
+        missing:
+            strategy: "drop"  # Options: "drop", "median", "mean", "forward_fill"
+            threshold: 0.5  # Drop columns with > 50% missing values
+        
+        # Column name normalization
+        columns:
+            strip_whitespace: true
+            lowercase: false
+            replace_spaces: "_"  # Replace spaces with underscores
+            remove_special_chars: false
+    
+    # Data validation settings
+    validation:
+        check_infinity: true
+        check_missing: true
+        check_schema: true
+        check_duplicates: true
+        generate_report: true
+    
+    # Output settings
+    output:
+        format: "csv"  # Options: "csv", "parquet"
+        compression: null  # Options: null, "gzip", "snappy" (for parquet)
+        save_stats: true  # Save cleaning statistics
+        stats_format: "json"  # Options: "json", "csv"
+
+# Logging configuration
+logging:
+    level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+    format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+    log_to_file: true
+    log_file: "logs/etl_pipeline.log"

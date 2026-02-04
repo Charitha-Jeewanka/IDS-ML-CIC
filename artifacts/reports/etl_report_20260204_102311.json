@@ -1,0 +1,258 @@
+{
+  "start_time": "2026-02-04T10:22:15.219714",
+  "end_time": "2026-02-04T10:23:11.561509",
+  "files_processed": 8,
+  "files_failed": 0,
+  "total_rows_input": 2830743,
+  "total_rows_output": 2829385,
+  "files": [
+    {
+      "filename": "Friday_WorkingHours_Afternoon_DDos_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:15.837387",
+      "original_rows": 225745,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 225745,
+        "columns_renamed": 78,
+        "infinity_values": 64,
+        "rows_dropped_nan": 4,
+        "missing_values": 4,
+        "final_rows": 225741,
+        "total_rows_dropped": 4
+      },
+      "final_rows": 225741,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 2633,
+        "total_rows": 225741,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Afternoon_DDos_ISCX.csv",
+      "end_time": "2026-02-04T10:22:20.328871"
+    },
+    {
+      "filename": "Friday_WorkingHours_Afternoon_PortScan_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:20.336627",
+      "original_rows": 286467,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 286467,
+        "columns_renamed": 78,
+        "infinity_values": 727,
+        "rows_dropped_nan": 15,
+        "missing_values": 15,
+        "final_rows": 286452,
+        "total_rows_dropped": 15
+      },
+      "final_rows": 286452,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 72353,
+        "total_rows": 286452,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Afternoon_PortScan_ISCX.csv",
+      "end_time": "2026-02-04T10:22:25.334373"
+    },
+    {
+      "filename": "Friday_WorkingHours_Morning_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:25.346363",
+      "original_rows": 191033,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 191033,
+        "columns_renamed": 78,
+        "infinity_values": 216,
+        "rows_dropped_nan": 28,
+        "missing_values": 28,
+        "final_rows": 191005,
+        "total_rows_dropped": 28
+      },
+      "final_rows": 191005,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 6888,
+        "total_rows": 191005,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Friday_WorkingHours_Morning_ISCX.csv",
+      "end_time": "2026-02-04T10:22:29.025400"
+    },
+    {
+      "filename": "Monday_WorkingHours_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:29.032725",
+      "original_rows": 529918,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 529918,
+        "columns_renamed": 78,
+        "infinity_values": 810,
+        "rows_dropped_nan": 64,
+        "missing_values": 64,
+        "final_rows": 529854,
+        "total_rows_dropped": 64
+      },
+      "final_rows": 529854,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 26927,
+        "total_rows": 529854,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Monday_WorkingHours_ISCX.csv",
+      "end_time": "2026-02-04T10:22:40.183184"
+    },
+    {
+      "filename": "Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:40.203546",
+      "original_rows": 288602,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 288602,
+        "columns_renamed": 78,
+        "infinity_values": 396,
+        "rows_dropped_nan": 18,
+        "missing_values": 18,
+        "final_rows": 288584,
+        "total_rows_dropped": 18
+      },
+      "final_rows": 288584,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 35627,
+        "total_rows": 288584,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Thursday_WorkingHours_Afternoon_Infilteration_ISCX.csv",
+      "end_time": "2026-02-04T10:22:45.478451"
+    },
+    {
+      "filename": "Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:45.489932",
+      "original_rows": 170366,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 170366,
+        "columns_renamed": 78,
+        "infinity_values": 250,
+        "rows_dropped_nan": 20,
+        "missing_values": 20,
+        "final_rows": 170346,
+        "total_rows_dropped": 20
+      },
+      "final_rows": 170346,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 6065,
+        "total_rows": 170346,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Thursday_WorkingHours_Morning_WebAttacks_ISCX.csv",
+      "end_time": "2026-02-04T10:22:48.699069"
+    },
+    {
+      "filename": "Tuesday_WorkingHours_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:48.703974",
+      "original_rows": 445909,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 445909,
+        "columns_renamed": 78,
+        "infinity_values": 327,
+        "rows_dropped_nan": 201,
+        "missing_values": 201,
+        "final_rows": 445708,
+        "total_rows_dropped": 201
+      },
+      "final_rows": 445708,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 24025,
+        "total_rows": 445708,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Tuesday_WorkingHours_ISCX.csv",
+      "end_time": "2026-02-04T10:22:57.652868"
+    },
+    {
+      "filename": "Wednesday_workingHours_ISCX.csv",
+      "status": "success",
+      "start_time": "2026-02-04T10:22:57.672257",
+      "original_rows": 692703,
+      "original_columns": 79,
+      "cleaning": {
+        "original_rows": 692703,
+        "columns_renamed": 78,
+        "infinity_values": 1586,
+        "rows_dropped_nan": 1008,
+        "missing_values": 1008,
+        "final_rows": 691695,
+        "total_rows_dropped": 1008
+      },
+      "final_rows": 691695,
+      "validation": {
+        "validation_passed": true,
+        "checks": {
+          "no_infinity": true,
+          "no_missing": true,
+          "schema_valid": true,
+          "data_types_valid": true
+        },
+        "duplicate_count": 80962,
+        "total_rows": 691695,
+        "total_columns": 79
+      },
+      "output_path": "/home/charitha/CICIDS-2017/IDS-ML-CIC/data/processed/Wednesday_workingHours_ISCX.csv",
+      "end_time": "2026-02-04T10:23:11.543925"
+    }
+  ]
+}
